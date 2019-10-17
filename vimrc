@@ -17,6 +17,8 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 let need_to_install_plugins=0
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
 if empty(system("grep lazy_load ~/.vim/bundle/Vundle.vim/autoload/vundle.vim"))
   echoerr "Vundle plugins are not installed. Please run ~/.vim/bin/install"
 else
@@ -87,7 +89,6 @@ else
   Plugin 'tpope/vim-projectionist'
   Plugin 'kien/rainbow_parentheses.vim'
   Plugin 'sbdchd/neoformat'
-
   "
   " Window Management
   "
@@ -159,3 +160,5 @@ else
     source ~/.vimrc.local
   endif
 endif
+
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>:CtrlPClearCache<cr>
