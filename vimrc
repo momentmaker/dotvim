@@ -19,6 +19,7 @@ filetype off                   " required!
 let need_to_install_plugins=0
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
+set termguicolors
 if empty(system("grep lazy_load ~/.vim/bundle/Vundle.vim/autoload/vundle.vim"))
   echoerr "Vundle plugins are not installed. Please run ~/.vim/bin/install"
 else
@@ -34,6 +35,7 @@ else
   Plugin 'tpope/vim-vividchalk'
   Plugin 'chriskempson/base16-vim'
   Plugin 'molokai'
+  Plugin 'crusoexia/vim-monokai'
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'wgibbs/vim-irblack'
   Plugin 'chriskempson/vim-tomorrow-theme'
@@ -162,3 +164,10 @@ else
 endif
 
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>:CtrlPClearCache<cr>
+
+colorscheme monokai
+
+" Removes first line artifacts in iTerm
+if &term =~ '256color'
+  set t_RC=
+endif
